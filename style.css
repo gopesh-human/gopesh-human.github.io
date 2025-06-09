@@ -58,9 +58,13 @@ main {
 }
 
 hr {
+  height: 4px;
   width: 100%;
   margin-top: 8px;
   margin-bottom: 16px;
+
+  background: #333333;
+  border: none;
 
   animation: expand-hr 500ms ease-in 500ms;
 }
@@ -148,7 +152,8 @@ hr {
   transition: all ease-in-out 100ms;
 
   font-size: 1.2rem;
-  text-align: center;
+  display: grid;
+  place-items: center;
 }
 .control button:hover {
   background: #333333;
@@ -204,6 +209,23 @@ hr {
   text-align: left;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #555555;
+
+  font-family: "Dongle", sans-serif;
+  font-size: 1.6rem;
+}
+
+.about-me h1, .introduction h1 {
+  height: 20%;
+}
+
 @media screen and (max-width:700px) {
   body {
     padding: 0;
@@ -211,6 +233,8 @@ hr {
   main {
     width: 100%;
     padding: 12px;
+    border-radius: 0;
+    box-shadow: none;
   }
   .top-bar {
     display: none;
@@ -222,5 +246,48 @@ hr {
   .info img {
     width: 100px;
     max-width: 20%;
+  }
+}
+@media screen and (min-width:1000px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: top;
+  }
+
+  .about-me {
+    border-right: 4px solid #333333;
+    padding: 12px;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+  .info img {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .info-table {
+    width: 100%;
+  }
+
+  .introduction {
+    padding: 12px;
+  }
+}
+@media screen and (min-width:1250px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: top;
+  }
+
+  .about-me {
+    border-right: 4px solid #333333;
+    padding: 12px;
+  }
+
+  .introduction {
+    padding: 12px;
   }
 }
