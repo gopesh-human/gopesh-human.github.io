@@ -119,6 +119,10 @@ main p {
   color: #eeeeee;
   background: #333333;
 }
+.control li {
+  aspect-ratio: 1 / 1;
+  height: 100%;
+}
 .control li button {
   background: inherit;
   color: inherit;
