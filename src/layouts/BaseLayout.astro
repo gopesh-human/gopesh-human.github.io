@@ -1,9 +1,30 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
+
+const anim = {
+  old: {
+    name: "bump",
+    duration: "0.5s",
+    easing: "ease-in",
+    direction: "reverse",
+  },
+  new: {
+    name: "bump",
+    duration: "0.5s",
+    easing: "ease-in-out",
+  },
+};
+
+const customTransition = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <html lang="en">
@@ -13,18 +34,36 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <ClientRouter />
   </head>
   <body>
     <Navigation />
 
-    <main>
+    <main transition:animate={customTransition}>
       <h1>{pageTitle}</h1>
       <slot />
-      <Footer />
     </main>
+
+    <Footer />
 
     <script>
       import "../scripts/menu.js";
     </script>
+    <style is:global>
+      @keyframes bump {
+        0% {
+          opacity: 0;
+          transform: scale(1) translateX(200px);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.1);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateX(0);
+        }
+      }
+    </style>
   </body>
 </html>

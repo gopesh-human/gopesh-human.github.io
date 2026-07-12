@@ -1,0 +1,27 @@
+---
+import llamaVideo from "../assets/videos/llama.mp4";
+---
+
+<div class="landingVideo disappear">
+  <video src={llamaVideo} preload="metadata" autoplay muted></video>
+
+  <script>
+    const video = document.querySelector("video");
+    const videoBox = document.querySelector(".landingVideo");
+
+    video?.addEventListener("pause", () => {
+      videoBox?.classList.add("disappear");
+    });
+    video?.addEventListener("timeupdate", () => {
+      const timeRemaining = video.duration - video.currentTime;
+      if (timeRemaining <= 1) {
+        videoBox?.classList.add("invisible");
+      }
+    });
+
+    const hasVisited = localStorage.getItem("hasVisitedBefore");
+    if (!hasVisited) {
+      videoBox?.classList.remove("disappear");
+    }
+  </script>
+</div>

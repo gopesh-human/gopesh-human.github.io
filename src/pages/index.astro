@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import Landing from "../components/Landing.astro";
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <Landing id="landing" />
   <p>Hi! I am Gopesh!</p>
 </BaseLayout>

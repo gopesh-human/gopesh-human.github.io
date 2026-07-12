@@ -1,12 +1,38 @@
 ---
-import Menu from "./Menu.astro";
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
 ---
 
-<div id="main-menu" class="navigation">
-  <div class="nav-links">
-    <a href="/"><h3>Home</h3></a>
-    <a href="/about/"><h3>About</h3></a>
-    <a href="/blog/"><h3>Blog</h3></a>
+<header>
+  <div class="topbar">
+    <div class="title">
+      <h1>Gopesh</h1>
+    </div>
+    <div class="controls">
+      <button>
+        <Icon name="lucide:sun" />
+      </button>
+      <button>
+        <Icon name="lucide:instagram" />
+      </button>
+      <button>
+        <Icon name="lucide:github" />
+      </button>
+      <button>
+        <Icon name="lucide:linkedin" />
+      </button>
+    </div>
   </div>
-  <Menu />
-</div>
+
+  <div class="nav-bar">
+    <button aria-expanded="false" aria-controls="nav-links" class="menu">
+      <Icon name="lucide:text-align-end" />
+    </button>
+
+    <div class="nav-links" id="nav-links">
+      <a href="/"><h4>Home</h4></a>
+      <a href="/about/"><h4>About</h4></a>
+      <a href="/blog/"><h4>Blog</h4></a>
+    </div>
+  </div>
+</header>
